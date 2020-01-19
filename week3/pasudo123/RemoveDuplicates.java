@@ -52,4 +52,25 @@ public class RemoveDuplicates {
 
         return existUniqueCount;
     }
+    
+    // 연욱님 코드 참고 ㅎㅎ;
+    public static int removeDuplicatesSecondSolve(int[] nums) {
+
+        int existUniqueCount = 0;
+        final int size = nums.length;
+
+        if(size == 0) {
+            return existUniqueCount;
+        }
+
+        int tempIndex = 0;
+        for(int i = 1; i < size; i++) {
+
+            if(nums[tempIndex] != nums[i]){
+                nums[++tempIndex] = nums[i];
+            }
+        }
+
+        return tempIndex;
+    }
 }
