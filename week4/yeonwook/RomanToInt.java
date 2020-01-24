@@ -58,7 +58,6 @@ public class Solution1 {
     	
     	int sum = 0;
     	int preVal =0;
-    	int i =0;
     	
     	char[] targetList = s.toCharArray();
     	
@@ -67,17 +66,16 @@ public class Solution1 {
     			return 0;
     		}
     		
-    		if(i!=0) {
+    		if(sum!=0) {
     			if(preVal<dataMap.get(ch)) {
     				sum -= (preVal*2);
     			} 
     		}
+    		
     		preVal = dataMap.get(ch);
     		sum += preVal;
-    		
-    		i++;
     	}
-    	
+        
     	return sum;
     }
     
