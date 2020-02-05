@@ -8,6 +8,10 @@ class Solution:
         two_step = 0
         
         for step_cost in cost :
-            one_step, two_step = step_cost + min(one_step, two_step), one_step
+            temp = step_cost + min(one_step, two_step)
+            two_step = one_step
+            one_step = temp
+            
+            #one_step, two_step = step_cost + min(one_step, two_step), one_step
             
         return min(one_step, two_step)
