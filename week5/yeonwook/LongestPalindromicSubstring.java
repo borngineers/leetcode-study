@@ -72,10 +72,6 @@ class LongestPalindrome {
     
     private String findMaxPalindrom(String subString, int startIndex, int endIndex) {
     	
-    	System.out.println("find startIndex : "+startIndex);
-    	System.out.println("find endIndex : "+endIndex);
-    	System.out.println("minSubString : "+subString.substring(startIndex, endIndex+1));
-    	
     	char[] charArray = subString.toCharArray();
     	int len = subString.length();
     	
@@ -88,9 +84,6 @@ class LongestPalindrome {
     		}
     		break;
     	}
-    	
-    	System.out.println("maxSubString : "+subString.substring(startIndex, endIndex+1));
-    	System.out.println("===============");
     	
     	return subString.substring(startIndex, endIndex+1);
     }
