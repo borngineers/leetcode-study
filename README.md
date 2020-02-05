@@ -32,3 +32,10 @@
 - [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 - [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
 - [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
+
+## 6주차 문제 (Contest 174)
+
+- [The K Weakest Rows in a Matrix](the-k-weakest-rows-in-a-matrix)
+- [Reduce Array Size to The Half](reduce-array-size-to-the-half)
+- [Maximum Product of Splitted Binary Tree](maximum-product-of-splitted-binary-tree)
+- [Jump Game V](jump-game-v)
