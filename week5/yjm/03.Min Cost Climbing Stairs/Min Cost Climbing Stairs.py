@@ -1,3 +1,6 @@
+# Runtime: 52 ms
+# Memory Usage: 12.8 MB
+
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
 
