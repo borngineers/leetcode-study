@@ -4,9 +4,10 @@
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
 
-        first_step = second_step = 0
+        one_step = 0
+        two_step = 0
         
-        for step_cost in reversed(cost) :
-            first_step, second_step = step_cost + min(first_step, second_step), first_step
+        for step_cost in cost :
+            one_step, two_step = step_cost + min(one_step, two_step), one_step
             
-        return min(first_step, second_step)
+        return min(one_step, two_step)
