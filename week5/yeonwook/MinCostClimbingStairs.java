@@ -1,12 +1,12 @@
-package test;
+package practice;
 
-import test.Solution;
+import practice.MinCostClimbingStairs;
 
-public class Solution4 {
+public class Solution3 {
 	
 	public static void main(String args[]) {
 		
-		Solution c1 = new Solution();
+		MinCostClimbingStairs c1 = new MinCostClimbingStairs();
 		
 		int[] costs1 = {10, 15, 20};
 		System.out.println(c1.minCostClimbingStairs(costs1));
@@ -23,10 +23,13 @@ public class Solution4 {
 		int[] costs5 = {1,2,2,2};
 		System.out.println(c1.minCostClimbingStairs(costs5));
 		
+		int[] costs6 = {1,2,2,0};
+		System.out.println(c1.minCostClimbingStairs(costs6));
+		
 	}
 }
 
-class Solution {
+class MinCostClimbingStairs {
     public int minCostClimbingStairs(int[] cost) {
         
     	int len = cost.length;
@@ -38,19 +41,14 @@ class Solution {
     	int minCost = 0;
     	int index = -1;
     	
-    	int compareTarget1 = 0;
-    	int compareTarget2 = 0;
-    	
     	while(index < len-2) {
     		
-    		if(index<len-3) {
-    			compareTarget1 = cost[index+1] + Math.min(cost[index+2], cost[index+3]);	
-    		} else {
-    			compareTarget1 = cost[index+1];
-    		}
-    		compareTarget2 = cost[index+2];
+    		if(index==len-4) {
+    			minCost += Math.min(cost[index+2], cost[index+1]+cost[index+3]);
+    			break;
+    		} 
     		
-    		if(compareTarget1<=compareTarget2) {
+    		if(cost[index+1]<cost[index+2]) {
     			minCost += cost[index+1];
     			index += 1;
     		} else {
@@ -58,7 +56,7 @@ class Solution {
     			index += 2;
     		}
     		
-    		//System.out.println("value[index] : "+cost[index]+"["+index+"]");
+    		System.out.println("value[index] : "+cost[index]+"["+index+"]");
     		
     	}
     	
