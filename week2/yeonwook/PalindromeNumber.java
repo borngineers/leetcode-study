@@ -1,5 +1,12 @@
 public class PalindromeNumber {
 
+	public static void main(String args[]) {
+		
+		
+		System.out.println(isPalindromeByNotUsingString(121));
+		
+	}
+    
     public static boolean isPalindromeByNotUsingString(int x) {
     	
     	if(x<0) {
