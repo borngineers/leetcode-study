@@ -33,7 +33,7 @@
 - [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
 - [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
 
-# 6주차 문제
+## 6주차 문제
 
 - [The K Weakest Rows in a Matrix](https://leetcode.com/contest/weekly-contest-174/problems/the-k-weakest-rows-in-a-matrix/)
 - [Reduce Array Size to The Half](https://leetcode.com/contest/weekly-contest-174/problems/reduce-array-size-to-the-half/)
