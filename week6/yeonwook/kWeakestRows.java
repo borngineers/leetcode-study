@@ -1,5 +1,4 @@
-package practice;
-
+package test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,7 +21,7 @@ public class Solution1 {
 		 */
 		int[][] mat = new int[][] {{1,1,0,0,0},{1,1,1,1,0},{1,0,0,0,0},{1,1,0,0,0},{1,1,1,1,1}};
 		int k =3;
-		System.out.println(c1.kWeakestRows(mat, k));
+		//System.out.println(c1.kWeakestRows(mat, k));
 		
 		
 		/*
@@ -35,7 +34,7 @@ public class Solution1 {
 		 */
 		int[][] mat2 = new int[][] {{1,0,0,0},{1,1,1,1},{1,0,0,0},{1,0,0,0}};
 		int k2 =2;
-		System.out.println(c1.kWeakestRows(mat2, k2));
+		//System.out.println(c1.kWeakestRows(mat2, k2));
 		
 		/*
 		[[1,1,1,1,1],[1,0,0,0,0],[1,1,0,0,0],[1,1,1,1,0],[1,1,1,1,1]]
@@ -65,23 +64,20 @@ class Solution11  {
     	
     	for(int i=0; i<len; i++) {
     		
+    		Item item = new Item();
+			item.setIndex(i);
+			item.setValue(0);
+    		
     		for(int j=0; j<subLen; j++) {
     			
-    			if(mat[i][j]==0 || j==subLen-1) {
+    			if(mat[i][j]==1) {
     				
-    				Item item = new Item();
-    				item.setIndex(i);
+    				item.setValue(item.getValue()+1);
     				
-    				int value = (j==subLen-1) ? subLen : j;
-    				item.setValue(value);
-    				resultList.add(item);
-    				
-    				System.out.println("row "+ i +" -> " + value);
-    				
-    				break;
     			}
     		}
     		
+    		resultList.add(item);
     	}
     	
     	Collections.sort(resultList, new Comparator<Item>() {
@@ -112,7 +108,6 @@ class Solution11  {
     	for(int a : returnArr) {
     		System.out.println(a);
     	}
-    	
     	
     	return returnArr;
     }

@@ -1,11 +1,15 @@
-package practice;
-
+package test;
 import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.Stack;
+import java.util.TreeMap;
 
 public class Solution2 {
 	
 	public static void main(String args[]) {
+		
+		//1 <= arr.length <= 10^5
+		//arr.length is even.
+		//1 <= arr[i] <= 10^5
 		
 		Solution22 c1 = new Solution22();
 		
@@ -44,7 +48,7 @@ class Solution22 {
     	int minSetSize = (int) Math.ceil(len/2);
     	System.out.println("minSetSize : "+ minSetSize);
     	HashMap<Integer, Integer> checkMap = new HashMap<Integer, Integer>();
-    	TreeSet<Integer> checkTress = new TreeSet<Integer>();
+    	TreeMap<Integer,Stack<Integer>> checkTress = new TreeMap<Integer, Stack<Integer>>();
     	int tryVal = 0;
     	
     	for(int i=0; i<len; i++) {
@@ -55,31 +59,43 @@ class Solution22 {
     		}
     	}
     	
+    	if(checkMap.size()==len) {
+    		return minSetSize;
+    	}
+    	
     	for(Integer i : checkMap.keySet()) {
-    		System.out.println("key : "+ i +", value : "+checkMap.get(i));
-    		checkTress.add(checkMap.get(i));
+    		
+    		if(checkTress.containsKey(checkMap.get(i))) {
+    			checkTress.get(checkMap.get(i)).push(1);
+    		} else {
+    			Stack<Integer> st = new Stack<Integer>();
+    			st.push(1);
+    			checkTress.put(checkMap.get(i), st);
+    		}
+    		
     	}
     	
     	while(minSetSize > 0) {
     		
     		
     		int removeVal = 0;
-    		//checkTress.lower(e)
-    		//Returns the greatest element in this set strictly less than thegiven element, 
-    		//or null if there is no such element.
-    		//checkTress.
     		
-    		if(checkTress.floor(minSetSize)==null) {
-    			removeVal = checkTress.higher(minSetSize);
+    		if(checkTress.floorKey(minSetSize)==null) {
+    			removeVal = checkTress.higherKey(minSetSize);
     		} else {
-    			removeVal = checkTress.floor(minSetSize);
+    			removeVal = checkTress.floorKey(minSetSize);
     		}
-    		System.out.println("removeVal : " + removeVal+"minSetSize : "+minSetSize);
+    		
     		minSetSize -= removeVal;
-    		checkTress.remove(removeVal);
+    		checkTress.get(removeVal).pop();
+    		
+    		if(checkTress.get(removeVal).isEmpty()) {
+    			checkTress.remove(removeVal);	
+    		} 
     		
     		tryVal++;
     	}
+    	
     	
     	return tryVal;   
     }
