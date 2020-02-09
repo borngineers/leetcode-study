@@ -46,7 +46,6 @@ class Solution22 {
     	}
     	
     	int minSetSize = (int) Math.ceil(len/2);
-    	System.out.println("minSetSize : "+ minSetSize);
     	HashMap<Integer, Integer> checkMap = new HashMap<Integer, Integer>();
     	TreeMap<Integer,Stack<Integer>> checkTress = new TreeMap<Integer, Stack<Integer>>();
     	int tryVal = 0;
