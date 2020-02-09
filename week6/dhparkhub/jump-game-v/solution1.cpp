@@ -17,36 +17,28 @@ public:
     arrSize = (int) arr.size();
     cache.assign(arrSize, 0);
     for (int i=0; i<arrSize; i++) {
-      answer = max(answer, getMaxJumps(arr, i, d));
-    }
-//    for (auto e: cache) {
-//      printf("%d\n", e);
-//    }
+      answer = max(answer, getMaxJumps(arr, i, d));// O(D)
+    }// O(ND)
     return answer;
-  }
+  }// O(ND)
   
   int getMaxJumps(vector<int>& arr, int index, int d) {
+    if (cache[index]) return cache[index];
     int temp = 0;
-    bool minusFlag = false;
-    bool plusFlag = false;
+    // go left
     for (int i=1; i<=d; i++) {
-      if (minusFlag && plusFlag) break;
-      // back case
       int tempIndex = index - i;
-      if (!minusFlag && valid(tempIndex) && arr[tempIndex] < arr[index]) {
-        temp = max(temp, cache[tempIndex] ? cache[tempIndex] : getMaxJumps(arr, tempIndex, d));
-      } else {
-        minusFlag = true;
-      }
-      // front case
-      tempIndex = index + i;
-      if (!plusFlag && valid(tempIndex) && arr[tempIndex] < arr[index]) {
-        temp = max(temp, cache[tempIndex] ? cache[tempIndex] : getMaxJumps(arr, tempIndex, d));
-      } else {
-        plusFlag = true;
-      }
+      if (!valid(tempIndex)) break;
+      if (arr[tempIndex] >= arr[index]) break;
+      temp = max(temp, getMaxJumps(arr, tempIndex, d));
     }
-    puts("");
+    // go right
+    for (int i=1; i<=d; i++) {
+      int tempIndex = index + i;
+      if (!valid(tempIndex)) break;
+      if (arr[tempIndex] >= arr[index]) break;
+      temp = max(temp, getMaxJumps(arr, tempIndex, d));
+    }
     return cache[index] = temp + 1;
   }
   

@@ -18,13 +18,13 @@ public:
     map<int, int> m;
     for (auto e: arr) {
       m[e]++;
-    }
+    }// O(N)
     
     priority_queue<int> q;
     for (auto e: m) {
 //      printf("%d %d\n", e.first, e.second);
       q.push(e.second);
-    }
+    }// O(NlogN)
     
     auto arr_size = arr.size();
     int sum = 0;
@@ -35,10 +35,10 @@ public:
       answer++;
       sum += e;
       if (sum * 2 >= arr_size) break;
-    }
+    }// O(NlogN)
     
     return answer;
-  }
+  }// O(NlogN)
   
 private:
   int answer = 0;

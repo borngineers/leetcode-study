@@ -22,7 +22,7 @@ class Solution {
   
 public:
   int maxProduct(TreeNode* root) {
-    int treeSum = sumOfTree(root);
+    int treeSum = sumOfTree(root);// O(N)
 //    printf("%d\n", treeSum);
     
     int temp = treeSum;
@@ -31,7 +31,7 @@ public:
       if (abs(half - e) < abs(half - temp)) {
         temp = e;
       }
-    }
+    }// O(N)
 //    printf("%d\n", temp);
     
     const int mod = 1000000007;
@@ -40,7 +40,7 @@ public:
     long long temp2 = num1 * num2;
     
     return answer = temp2 % mod;
-  }
+  }// O(N)
   
   int sumOfTree(TreeNode* node) {
     if (node == NULL) return 0;
