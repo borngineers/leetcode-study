@@ -1,7 +1,5 @@
 package practice;
 
-import practice.MinCostClimbingStairs;
-
 public class Solution3 {
 	
 	public static void main(String args[]) {
@@ -23,13 +21,15 @@ public class Solution3 {
 		int[] costs5 = {1,2,2,2};
 		System.out.println(c1.minCostClimbingStairs(costs5));
 		
-		int[] costs6 = {1,2,2,0};
+		int[] costs6 = {1,2,2,0}; 
 		System.out.println(c1.minCostClimbingStairs(costs6));
 		
 	}
 }
 
 class MinCostClimbingStairs {
+	
+	
     public int minCostClimbingStairs(int[] cost) {
         
     	int len = cost.length;
@@ -38,28 +38,19 @@ class MinCostClimbingStairs {
     		return 0;
     	}
     	
+    	int preMinCost1 = 0;
+    	int preMinCost2 = 0;
     	int minCost = 0;
-    	int index = -1;
     	
-    	while(index < len-2) {
+    	for(int i=1;i<len;i++) {
     		
-    		if(index==len-4) {
-    			minCost += Math.min(cost[index+2], cost[index+1]+cost[index+3]);
-    			break;
-    		} 
-    		
-    		if(cost[index+1]<cost[index+2]) {
-    			minCost += cost[index+1];
-    			index += 1;
-    		} else {
-    			minCost += cost[index+2];
-    			index += 2;
-    		}
-    		
-    		System.out.println("value[index] : "+cost[index]+"["+index+"]");
-    		
+    		minCost = Math.min(preMinCost1+cost[i-1], preMinCost2+cost[i]);
+    		preMinCost1 = preMinCost2;
+    		preMinCost2 = minCost;
     	}
     	
     	return minCost;
     }
+    
+    
 }
