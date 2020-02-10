@@ -8,12 +8,11 @@ public class MaxJumps {
 
     public static void main(String[] args) {
 
-        System.out.println(maxJumps(new int[]{6,4,14,6,8,13,9,7,10,6,12}, 2));
+        System.out.println(maxJumps(new int[]{6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12}, 2));
 //        System.out.println(maxJumps(new int[]{7,6,5,4,3,2,1}, 1));
 //        System.out.println(maxJumps(new int[]{3,3,3,3,3}, 3));
     }
 
-    static int[] cacheArr = null;
     static int distance = -1;
     static int maxValue = 0;
 
@@ -26,27 +25,24 @@ public class MaxJumps {
         final int size = arr.length;
 
         distance = d;
-        cacheArr = new int[size];
-        Arrays.fill(cacheArr, -1);
 
         int[] visited = new int[size];      // 방문 배열
 
         for (int i = 0; i < size; i++) {
             visited[i] = 1;
-            int step = jump(arr[i], i, arr, visited);
-            maxValue = (step > maxValue) ? step : maxValue;
+            jump(arr[i], i, arr, visited);
             visited[i] = 0;
         }
 
         return maxValue;
     }
 
-    public static int jump(int nowHeight,
+    public static void jump(int nowHeight,
                             int startIndex,
                             int[] arr,
                             int[] visited) {
 
-        int myStep = 1;
+        maxValue = Math.max(visited[startIndex], maxValue);
 
         final List<Integer> leftIndexList = new ArrayList<>();
         boolean isInOfLeftIndex = true;
@@ -58,53 +54,50 @@ public class MaxJumps {
 
         // 방문은 안했고, 나보다 값이 작다.
         // 그 이전에 근데 방문했던 값이 나보다 크다.
-
         for (int d = 1; d <= distance; d++) {
 
             int leftIndex = startIndex - d;
             int rightIndex = startIndex + d;
 
             /** 왼쪽 **/
-            if(leftIndex < 0) {
+            if (leftIndex < 0) {
                 isInOfLeftIndex = false;
             }
 
-            if(isInOfLeftIndex && arr[leftIndex] >= nowHeight) {
+            if (isInOfLeftIndex && arr[leftIndex] >= nowHeight) {
                 isLeftMovable = false;
             }
 
-            if(isInOfLeftIndex && isLeftMovable && visited[leftIndex] == 0) {
+            if (isInOfLeftIndex && isLeftMovable && visited[leftIndex] == 0) {
                 leftIndexList.add(leftIndex);
             }
 
             /** 오른쪽 **/
-            if(rightIndex >= arr.length){
+            if (rightIndex >= arr.length) {
                 isInOfRightIndex = false;
             }
 
-            if(isInOfRightIndex && arr[rightIndex] >= nowHeight) {
+            if (isInOfRightIndex && arr[rightIndex] >= nowHeight) {
                 isRightMovable = false;
             }
 
-            if(isInOfRightIndex && isRightMovable && visited[rightIndex] == 0) {
+            if (isInOfRightIndex && isRightMovable && visited[rightIndex] == 0) {
                 rightIndexList.add(rightIndex);
             }
         }
 
         // 왼쪽 이동
         for (int leftIndex : leftIndexList) {
-            visited[leftIndex] = 1;
-            myStep += jump(arr[leftIndex], leftIndex, arr, visited);
+            visited[leftIndex] = visited[startIndex] + 1;
+            jump(arr[leftIndex], leftIndex, arr, visited);
             visited[leftIndex] = 0;
         }
 
         // 오른쪽 이동
         for (int rightIndex : rightIndexList) {
-            visited[rightIndex] = 1;
-            myStep += jump(arr[rightIndex], rightIndex, arr, visited);
+            visited[rightIndex] = visited[startIndex] + 1;
+            jump(arr[rightIndex], rightIndex, arr, visited);
             visited[rightIndex] = 0;
         }
-
-        return myStep;
     }
 }
