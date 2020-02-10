@@ -1,7 +1,7 @@
-package test;
+package practice;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Solution4 {
 	
@@ -23,54 +23,68 @@ public class Solution4 {
 
 class Solution {
 
-	List<Integer> cacheList = new ArrayList<Integer>();
+	HashMap<Integer, Node> cacheNodeMap = new HashMap<Integer, Node>();
 
 	public int maxJumps(int[] arr, int d) {
 	 
 		int len = arr.length;
-		//왼쪽쪽 으로 d만큼중 가장 근접 대상 탐색
-		//오른쪽 으로 d만큼중 가장 근접 대상 탐색
-		
-		System.out.println(findHighRight(arr, 2, 2));
 		
 		for(int i=0; i<len; i++) {
 			
+			makeNode(i);
+			
+			int findLeftIndex = findLeftNode(arr, i, d);
+			
+			if(findLeftIndex != -1) {
+				makeNode(findLeftIndex);
+				cacheNodeMap.get(i).setLeft(cacheNodeMap.get(findLeftIndex));
+			}
+			
+			int findRightIndex = findRightNode(arr, i, d);
+			
+			if(findRightIndex != -1) {
+				makeNode(findRightIndex);
+				cacheNodeMap.get(i).setRight(cacheNodeMap.get(findRightIndex));
+			}
 		}
-	 
+		
+		
+		Iterator<Integer> i = cacheNodeMap.keySet().iterator();
+		
+		while(i.hasNext()) {
+			
+		}
 	 
 	 
 		return 0;
 	}
  
-	public int findHighRight(int[] arr, int index, int d) {
-	 
+	public int findRightNode(int[] arr, int index, int d) {
+		 
 		int len = arr.length;
 		int maxVal = 0;
-		int maxIndex = 0;
+		int findIndex = -1;
 		int cnt = 0;
 		int tempIndex = index;
 	 
 		while(cnt<d && tempIndex<len) {
-			
-			//System.out.println("tempIndex : " + tempIndex);
-			
 			tempIndex++;
 			
 			if(arr[tempIndex]>maxVal && arr[tempIndex]<arr[index]) {
 				maxVal = arr[tempIndex];
-				maxIndex = tempIndex;
+				findIndex = tempIndex;
 			}
 			
 			cnt++;
 		}
 		 
-		return maxIndex;
+		return findIndex;
 	}
  
-	public int findHighLeft(int[] arr, int index, int d) {
+	public int findLeftNode(int[] arr, int index, int d) {
 	 
 		int maxVal = 0;
-		int maxIndex = 0;
+		int findIndex = -1;
 		int cnt = 0;
 		int tempIndex = index;
 	 
@@ -79,12 +93,48 @@ class Solution {
 			
 			if(arr[tempIndex]>maxVal && arr[tempIndex]<arr[index]) {
 				maxVal = arr[tempIndex];
-				maxIndex = tempIndex;
+				findIndex = tempIndex;
 			}
 			
 			cnt++;
 		}
 	 
-		return maxIndex;
+		return findIndex;
 	}
+	
+	
+	public void makeNode(int index) {
+		if(cacheNodeMap.containsKey(index)) {
+			Node node = new Node();
+			cacheNodeMap.put(index, node);
+		}
+	}
+}
+
+
+class Node {
+	private Node left;
+	private Node right;
+	
+	Node() {
+		left = null;
+		right = null;
+	}
+
+	public Node getLeft() {
+		return left;
+	}
+
+	public void setLeft(Node left) {
+		this.left = left;
+	}
+
+	public Node getRight() {
+		return right;
+	}
+
+	public void setRight(Node right) {
+		this.right = right;
+	}
+
 }
