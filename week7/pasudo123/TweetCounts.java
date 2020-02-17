@@ -17,18 +17,24 @@ public class TweetCounts {
 
     public static void main(String[]args){
         TweetCounts tweetCounts = new TweetCounts();
-        tweetCounts.recordTweet("tweet0",0);
-        tweetCounts.recordTweet("tweet3",60);
-        tweetCounts.recordTweet("tweet4",56);
+        tweetCounts.recordTweet("tweet0",13);
+//        tweetCounts.recordTweet("tweet3",0);
+//        tweetCounts.recordTweet("tweet3",60);
+//        tweetCounts.recordTweet("tweet3",10);
+        tweetCounts.recordTweet("tweet3",16);
+        tweetCounts.recordTweet("tweet3",66);
 
+        System.out.println(Arrays.toString(tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 43, 1838).toArray()));
         System.out.println(Arrays.toString(tweetCounts.getTweetCountsPerFrequency("minute", "tweet3", 0, 59).toArray()));
         System.out.println(Arrays.toString(tweetCounts.getTweetCountsPerFrequency("minute", "tweet3", 0, 60).toArray()));
         System.out.println(Arrays.toString(tweetCounts.getTweetCountsPerFrequency("day", "tweet0", 89, 9471).toArray()));
 
         tweetCounts.recordTweet("tweet3",120);
+
+        System.out.println(Arrays.toString(tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210).toArray()));
     }
 
-    public void recordTweet(String tweetName, int time) {
+    void recordTweet(String tweetName, int time) {
 
         if(map.containsKey(tweetName)){
             final List<Tweet> tweets = map.get(tweetName);
@@ -56,8 +62,12 @@ public class TweetCounts {
             timeInterval = getMinuteInterval(startTime, endTime);
         }
 
-        if(freq.equalsIgnoreCase(HOUR) || freq.equalsIgnoreCase(DAY)){
+        if(freq.equalsIgnoreCase(HOUR)){
             timeInterval = getHourInterval(startTime, endTime);
+        }
+
+        if(freq.equalsIgnoreCase(DAY)){
+            timeInterval = getDayInterval(startTime, endTime);
         }
 
         if(timeInterval.size() == 0) {
@@ -69,31 +79,32 @@ public class TweetCounts {
 
         final int size = timeInterval.size() - 1;
         final int tweetSize = tweets.size();
-        boolean isCountInit = false;
+        int newIndex = 0;
         int count = 0;
 
-        for(int i = 0; i < tweetSize; i++) {
+        // 해당 시간대에 몇개의 트윗이 있는지 여부 파악
+        for(int ti = 0; ti <= size; ti += 2){
 
-            final Tweet tweet = tweets.get(i);
+            int start = timeInterval.get(ti);
+            int end = timeInterval.get(ti + 1);
 
-            for (int j = 0; j <= size; j += 2) {
+            for(int i = newIndex; i < tweetSize; i++){
 
-                int start = timeInterval.get(j);
-                int end = timeInterval.get(j + 1);
-
+                final Tweet tweet = tweets.get(i);
                 if (tweet.second >= start && end >= tweet.second) {
+                    newIndex++;
                     count++;
                 } else {
-                    isCountInit = true;
-                    break;
+                    continue;
                 }
             }
 
+//            if(isCountInit) {
+//                count = 0;
             resultList.add(count);
-            if(isCountInit){
-                count = 0;
-                isCountInit = false;
-            }
+            count = 0;
+//                isCountInit = false;
+//            }
         }
 
         return resultList;
@@ -130,6 +141,18 @@ public class TweetCounts {
         for(int s = startTime; s <= endTime; s += 3600){
             timeInterval.add(s);
             timeInterval.add(s + 3599);
+        }
+
+        return timeInterval;
+    }
+
+    private List<Integer> getDayInterval(final int startTime, final int endTime) {
+
+        final List<Integer> timeInterval = new ArrayList<>();
+
+        for(int s = startTime; s <= endTime; s += 86400){
+            timeInterval.add(s);
+            timeInterval.add(s + 86399);
         }
 
         return timeInterval;
