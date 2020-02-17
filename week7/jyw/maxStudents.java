@@ -1,12 +1,11 @@
-package test;
+package practice;
 
-import test.Solution;
+import practice.A;
 
-public class Solution4 {
+public class Solution {
 	
-	public static void main(String args[]) {
-		
-		Solution ss = new Solution();
+	public static void main(String[] args) {
+		A ss = new A();
 		/*
 		seats = [['#','.','#','#','.','#'],
 	                ['.','#','#','#','#','.'],
@@ -19,7 +18,7 @@ public class Solution4 {
 		};
 		
 		
-		System.out.println(ss.maxStudents(seats));
+		//System.out.println(ss.maxStudents(seats));
 		
 		/*
 		Input: seats = [['.','#'],
@@ -37,7 +36,7 @@ public class Solution4 {
 		};
 		
 		
-		System.out.println(ss.maxStudents(seats2));
+		//System.out.println(ss.maxStudents(seats2));
 		
 		/*
 		Input: seats = [['#','.','.','.','#'],
@@ -55,7 +54,7 @@ public class Solution4 {
 		};
 		
 		
-		System.out.println(ss.maxStudents(seats3));
+		//System.out.println(ss.maxStudents(seats3));
 		
 		/*
 		[['#','.','#'],['#','#','.'],['.','#','.']]
@@ -67,135 +66,136 @@ public class Solution4 {
 			{'.','#','.'}	
 		};
 		
-		System.out.println(ss.maxStudents(seats4));
+		//System.out.println(ss.maxStudents(seats4));
 		
+		/*
+		[[['#','.','#','.','.'],['.','#','#','#','#'],['#','.','.','#','#'],['#','.','#','.','.'],['#','.','#','#','.']]]
+		*/
+		
+		char[][] seats5 = new char[][] {
+			{'#','.','#','.','.'},
+			{'.','#','#','#','#'},
+			{'#','.','.','#','#'},
+			{'#','.','#','.','.'},
+			{'#','.','#','#','.'}	
+		};
+		
+		//System.out.println(ss.maxStudents(seats5));
+		
+		/*
+		[['#','#','.'],['#','.','.'],['.','.','#']]
+		*/
+		
+		char[][] seats6 = new char[][] {
+			{'#','#','.'},
+			{'#','.','.'},
+			{'.','.','#'}
+		};
+		
+		//System.out.println(ss.maxStudents(seats6));
+		
+		/*
+		['.','.','#','#'],['.','#','.','.'],['#','.','.','#'],['#','#','#','.']]
+		*/
+		
+		char[][] seats7 = new char[][] {
+			{'.','.','#','#'},
+			{'.','#','.','.'},
+			{'#','.','.','#'},
+			{'#','#','#','.'}
+		};
+		
+		//System.out.println(ss.maxStudents(seats7));
+		
+		/*
+		['#','#','#','.','#'],['.','.','#','.','.'],['#','.','#','.','#'],['.','.','.','.','.'],['.','.','.','#','.']
+		*/
+		
+		char[][] seats8 = new char[][] {
+			{'#','#','#','.','#'},
+			{'.','.','#','.','.'},
+			{'#','.','#','.','#'},
+			{'.','.','.','.','.'},
+			{'.','.','.','#','.'}
+		};
+		
+		System.out.println(ss.maxStudents(seats8));
 		
 	}
 }
 
-class Solution {
-
-    public int maxStudents(char[][] seats) {
-        
-    	int rowLen = seats[0].length;
-    	
-    	int max = 0;
-    	char[][] temps = null;
-    	
-    	for(int i=0; i<rowLen; i++) {
-    		
-    		temps = deepCopy(seats);
-    		int cnt = 0;
-    		int colLen = seats.length;
-    		//int i =5;
-    		
-    		for(int j=colLen-1; j>=0; j--) {
-    			
-    			if(temps[j][i]=='.') {
-    				
-    				cnt++;
-    				
-    				if(i+1 < rowLen) {
-    					temps[j][i+1] = '#';
-    				}
-    				if(i+1 < rowLen && j-1 >= 0) {
-    					temps[j-1][i+1] = '#';
-    				}
-    				if(i-1 >= 0) {
-    					temps[j][i-1] = '#';
-    				}
-    				if(i-1 >= 0 && j-1 >= 0) {
-    					temps[j-1][i-1] = '#';
-    				}
-    			}
-    			
-    			
-    		}
-    		
-    		int rightIndex = i;
-    		int leftIndex = i;
-    		
-    		while( leftIndex >=0 || rightIndex < seats[0].length) {
-    			
-    			rightIndex++;
-    			leftIndex--;
-    			
-    			//오른쪽으로 한줄 씩 옮겨 간다
-    			if(leftIndex >= 0) {
-    				for(int j=colLen-1; j>=0; j--) {
-            			
-            			if(temps[j][leftIndex]=='.') {
-            				
-            				cnt++;
-            				
-            				if(leftIndex-1 >= 0) {
-            					temps[j][leftIndex-1] = '#';
-            				}
-            				if(leftIndex-1 >= 0 && j-1 >= 0) {
-            					temps[j-1][leftIndex-1] = '#';
-            				}
-            			}
-            			
-            		}
-    			}
-        		
-        		
-        		//오른쪽으로 한줄 씩 옮겨 간다
-    			if(rightIndex < seats[0].length) {
-    				for(int j=colLen-1; j>=0; j--) {
-            			
-            			if(temps[j][rightIndex]=='.') {
-            				
-            				cnt++;
-            				
-            				if(rightIndex+1<seats[0].length) {
-            					temps[j][rightIndex+1] = '#';
-            				}
-            				if(rightIndex+1<seats[0].length && j-1 >= 0) {
-            					temps[j-1][rightIndex+1] = '#';
-            				}
-            			}
-            			
-            		}
-    			}
-        		
-    		}
-    		
-    		if(cnt>max) {
-    			max = cnt;
-    		}
-    		
-    		
-        	for(int k=0; k<temps.length; k++) {
-        		for(int j=0; j<temps[0].length; j++) {
-        			System.out.print(temps[k][j]);
-        		}
-        		System.out.println();
-        	}
-        	
-        	System.out.println("=========");
-    		
-    		
-    	}
-    	
-    	
-    	
-    	//System.out.println(max);
-    	
-    	return max;
-    }
-    
-    
-    private static char[][] deepCopy(char[][] original2) {
-        if(original2 == null) return null;
-        char[][] result = new char[original2.length][original2[0].length];
-         
-        for(int i=0; i<original2.length; i++){
-            System.arraycopy(original2[i], 0, result[i], 0, original2[0].length);
-        }
-         
-        return result;
-    }
-    
- 
+class A {
+	
+	
+	public int maxStudents(char[][] seats) {
+		
+		int rowLen = seats[0].length;
+		int colLen = seats.length;
+		int cnt = 0;
+		
+		int rowIndex = findMaxCol(seats, rowLen, colLen);
+		
+		
+		while(rowIndex != -1) {
+			System.out.println(rowIndex);
+			
+			for(int i=0; i<colLen; i++) {
+				
+				if(seats[i][rowIndex]=='.') {
+					cnt++;
+					
+					seats[i][rowIndex] = '#';
+					
+					if(i-1 >= 0 && rowIndex+1 < rowLen) {
+						seats[i-1][rowIndex+1] = '#';
+					}
+					if(rowIndex+1 < rowLen) {
+						seats[i][rowIndex+1] = '#';
+					}
+					if(i+1 < colLen && rowIndex+1 < rowLen) {
+						seats[i+1][rowIndex+1] = '#';
+					}
+					if(i-1 >= 0 && rowIndex-1 >= 0) {
+						seats[i-1][rowIndex-1] = '#';
+					}
+					if(rowIndex-1 >= 0) {
+						seats[i][rowIndex-1] = '#';
+					}
+					if(i+1 < colLen && rowIndex-1 >= 0) {
+						seats[i+1][rowIndex-1] = '#';
+					}
+				}
+			}
+			
+			rowIndex = findMaxCol(seats, rowLen, colLen);
+		}
+		
+		return cnt;
+	}
+	
+	public int findMaxCol(char[][] seats, int rowLen, int colLen) {
+		
+		int max = 0;
+		int cnt = 0;
+		int rowIndex = 0;
+		
+		for(int i=0; i<rowLen; i++) {
+			cnt = 0;
+			for(int j=0; j<colLen; j++) {
+				if(seats[j][i]=='.') {
+					cnt++;
+				}
+			}
+			if(cnt>=max) {
+				max = cnt;
+				rowIndex = i;
+			}
+		}
+		
+		if(max==0) {
+			return -1;
+		}
+		
+		return rowIndex;
+	}
 }
