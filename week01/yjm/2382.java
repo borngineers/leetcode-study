@@ -116,10 +116,10 @@ public class SWExpert2382 {
                 microbe.col += moveLeftRight[microbe.direction];
                 microbe = checkEnterCautionArea(microbe);
             }
-            checkMergeMicrobes3();
+            checkMergeMicrobes();
         }
 
-        public void checkMergeMicrobes3() {
+        public void checkMergeMicrobes() {
             ArrayList<Microbe> tempMicrobes = new ArrayList<>();
             ArrayList<Integer> ignoreIndexList = new ArrayList<>();
 
