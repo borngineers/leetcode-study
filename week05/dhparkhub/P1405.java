@@ -1,55 +1,43 @@
 package solved;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class P1405 {
 
     class Solution {
-        class Happy {
-            char ch;
-            int k;
-
-            Happy(char ch, int k) {
-                this.ch = ch;
-                this.k = k;
-            }
-        }
-
         private String answer;
-        private PriorityQueue<Happy> pq;
+        private int[] count;
+        private PriorityQueue<Character> pq;
 
         Solution() {
             answer = "";
-            pq = new PriorityQueue<>(new Comparator<Happy>() {
-                @Override
-                public int compare(Happy o1, Happy o2) {
-                    if (o1.k < o2.k) return 1;
-                    else if (o1.k > o2.k) return -1;
-                    return 0;
-                }
-            });
+            pq = new PriorityQueue((x, y) -> count[(char)y - 'a'] - count[(char)x - 'a']);
         }
 
         public String longestDiverseString(int a, int b, int c) {
-            if (a > 0) pq.add(new Happy('a', a));
-            if (b > 0) pq.add(new Happy('b', b));
-            if (c > 0) pq.add(new Happy('c', c));
+            count = new int[]{a, b, c};
+
+            if (a > 0) pq.add('a');
+            if (b > 0) pq.add('b');
+            if (c > 0) pq.add('c');
 
             while (!pq.isEmpty()) {
-                Happy happy = pq.poll();
+                char temp = pq.poll();
 
                 int size = answer.length();
-                if (size >= 2 && answer.charAt(size - 1) == happy.ch && answer.charAt(size - 2) == happy.ch) {
+                if (size >= 2 && answer.charAt(size - 1) == temp && answer.charAt(size - 2) == temp) {
                     if (pq.isEmpty()) break;
-                    Happy temp = pq.poll();
-                    pq.add(happy);
-                    happy = temp;
+                    answer += pq.peek();
+                    if (--count[pq.peek() - 'a'] == 0) {
+                        pq.poll();
+                    }
+                    pq.add(temp);
+                    continue;
                 }
 
-                answer += happy.ch;
-                if (--happy.k > 0) {
-                    pq.add(happy);
+                answer += temp;
+                if (--count[temp - 'a'] != 0) {
+                    pq.add(temp);
                 }
             }
 
