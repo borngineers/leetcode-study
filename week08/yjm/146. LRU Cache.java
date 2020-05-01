@@ -58,13 +58,11 @@ public class LeetCode146 {
             int minKey = -1;
             int minVal = -1;
             life += 1;
-            if (cacheMap.containsKey(key)) {
-                cacheMap.put(key, new Pair(value, life));
-            } else {
+            if (!cacheMap.containsKey(key)) {
                 if (cacheMap.size() >= MAX) {
                     for (Map.Entry item : cacheMap.entrySet()) {
-                        Pair p = (Pair)item.getValue();
-                        int pKey = (int)item.getKey();
+                        Pair p = (Pair) item.getValue();
+                        int pKey = (int) item.getKey();
                         if (minVal == -1) {
                             minVal = p.count;
                             minKey = pKey;
@@ -77,8 +75,8 @@ public class LeetCode146 {
                     }
                     cacheMap.remove(minKey);
                 }
-                cacheMap.put(key, new Pair(value, life));
             }
+            cacheMap.put(key, new Pair(value, life));
         }
     }
 
