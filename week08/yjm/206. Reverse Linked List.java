@@ -26,6 +26,7 @@ public class LeetCode206 {
 
     static class Solution {
 
+        // 1 ms	/ 39.1 MB
         public ListNode reverseList(ListNode head) {
             ListNode retNode = null;
             ListNode tempNode = null;
@@ -46,6 +47,20 @@ public class LeetCode206 {
                 tempNode = tempNode.next;
             }
             return retNode;
+        }
+        
+        // 0 ms	/ 38.9 MB
+        public ListNode reverseList2(ListNode head) {
+            if (head == null) { return null; }
+            ListNode temp = new ListNode(head.val);
+            head = head.next;
+            while (head != null) {
+                ListNode n = new ListNode(head.val);
+                n.next = temp;
+                temp = n;
+                head = head.next;
+            }
+            return temp;
         }
 
     }
