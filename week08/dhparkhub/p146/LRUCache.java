@@ -1,36 +1,31 @@
 package solved.p146;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 class LRUCache {
-    private Map<Integer, Integer> map = new HashMap<>();
-    private List<Integer> list = new ArrayList<>();
-    private int capacity;
+    private final Map<Integer, Integer> cache;
 
     public LRUCache(int capacity) {
-        this.capacity = capacity;
+        cache = new LinkedHashMap<Integer, Integer>() {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return size() > capacity;
+            }
+        };
     }
 
     public int get(int key) {
-        if (map.containsKey(key)) {
-            list.remove(new Integer(key));
-            list.add(key);
+        int ret = cache.getOrDefault(key, -1);
+        if (ret != -1) {
+            cache.remove(key);
+            cache.put(key, ret);
         }
-        return map.getOrDefault(key, -1);
+        return ret;
     }
 
     public void put(int key, int value) {
-        if (map.containsKey(key)) {
-            list.remove(new Integer(key));
-        } else {
-            if (list.size() == capacity) {
-                map.remove(list.remove(0));
-            }
-        }
-        list.add(key);
-        map.put(key, value);
+        cache.remove(key);
+        cache.put(key, value);
     }
 }
