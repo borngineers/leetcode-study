@@ -13,7 +13,7 @@ SW Expert Academy A형을 준비하려고 했다가, 다시 Leetcode로 회귀�
 - [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 - [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)
 
-## Week 9 (2020.05.13)
+## Week 9 (2020.05.20)
 
 - [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
