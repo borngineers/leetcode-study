@@ -12,7 +12,10 @@
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 
-202 125 13
+- [202. Happy Number](https://leetcode.com/problems/happy-number/)
+- [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+- [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+
 14 70 387
 204 38 344
 234 242 198
