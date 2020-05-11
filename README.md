@@ -2,17 +2,6 @@
 
 SW Expert Academy A형을 준비하려고 했다가, 다시 Leetcode로 회귀한 스터디.
 
-## Week 8 (2020.05.06)
-
-- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-- [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
-- [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
-- [146. LRU Cache](https://leetcode.com/problems/lru-cache/)
-- [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
-- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
-- [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
-- [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)
-
 ## Week 9 (2020.05.20)
 
 - [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
@@ -21,3 +10,11 @@ SW Expert Academy A형을 준비하려고 했다가, 다시 Leetcode로 회귀�
 - [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [15. 3Sum](https://leetcode.com/problems/3sum/)
 - [1424. Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii/)
+
+## Week 10 (2020.05.27)
+
+- [202. Happy Number](https://leetcode.com/problems/happy-number/)
+- [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+- [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+- [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)

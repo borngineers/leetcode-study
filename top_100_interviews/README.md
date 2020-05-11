@@ -11,7 +11,6 @@
 - [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
-
 - [202. Happy Number](https://leetcode.com/problems/happy-number/)
 - [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 - [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
@@ -37,8 +36,10 @@
 - [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 - [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [15. 3Sum](https://leetcode.com/problems/3sum/)
+- [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 
-138 56
+
 22 33
 289 253
 322 54

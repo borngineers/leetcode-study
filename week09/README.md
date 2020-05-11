@@ -1,4 +1,4 @@
-# Week 9 (2020.05.13)
+# Week 9 (2020.05.20)
 
 - [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
