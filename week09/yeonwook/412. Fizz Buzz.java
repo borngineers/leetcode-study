@@ -3,7 +3,6 @@ class Solution {
         
         //sb를 String으로 썼을때 9ms
         //sb를 StringBuilder로 사용했을때 2ms
-        
         List<String> answer = new ArrayList<>();
         
         String add3 = "Fizz";
@@ -19,7 +18,9 @@ class Solution {
             if(remainder1 != 0 && remainder2 != 0) sb.append(i);
             answer.add(sb.toString());  
             
-            sb.delete(0, sb.length());
+            // sb.delete(0, sb.length()); => 2ms
+            // sb.setLength(0); => 1ms
+            sb.setLength(0);
         }
         
         return answer;
