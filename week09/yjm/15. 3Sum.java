@@ -76,6 +76,13 @@ public class LeetCode15 {
         
         public List<List<Integer>> threeSum3(int[] nums) {
             List<List<Integer>> retList = new ArrayList<>();
+            if (nums.length == 3) {
+                if (nums[0] + nums[1] + nums[2] == 0) {
+                    retList.add(Arrays.asList(nums[0], nums[1], nums[2]));
+                    return retList;
+                }
+            }
+            
             Arrays.sort(nums);
             for (int i = 0; i < nums.length - 3; i++) {
                 if (i > 0 && nums[i] == nums[i-1]) { continue; }
