@@ -7,6 +7,6 @@ class Solution {
             answer = answer * 10 + x % 10;
             x /= 10;
         }
-        return answer == (int) answer ? (int) answer : 0;// prevent overflow
+        return answer == (int) answer ? (int) answer : 0;
     }
 }

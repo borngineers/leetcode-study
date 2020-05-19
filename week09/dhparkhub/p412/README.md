@@ -1,8 +1,10 @@
-package published.p412;
+# [Leetcode] 412. Fizz Buzz
 
-import java.util.Arrays;
-import java.util.List;
+주어진 `Fizz Buzz` 문제를 푼다. 
 
+## Solution
+
+```java
 class Solution {
     public List<String> fizzBuzz(int n) {
         String[] answer = new String[n];
@@ -20,3 +22,8 @@ class Solution {
         return Arrays.asList(answer);
     }
 }
+```
+
+| Time Complexity | Runtime | Memory |
+|-----------------|---------|--------|
+| O(N) | 1 ms | 45.7 MB |

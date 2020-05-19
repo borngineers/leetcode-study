@@ -1,4 +1,4 @@
-package solved.p15;
+package published.p15;
 
 import java.util.Arrays;
 import java.util.LinkedList;
