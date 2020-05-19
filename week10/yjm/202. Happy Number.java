@@ -23,6 +23,7 @@ public class LeetCode202 {
 }
 
 class Solution {
+    // 2 ms , 38.3 MB
     public boolean isHappy(int n) {
         HashMap<Integer, Boolean> map = new HashMap<>();
         while (n != 1) {
