@@ -5,8 +5,7 @@ class Solution {
         List<Pair> resultList = null;
         
         for(int i=0; i<intervals.length; i++) {
-            
-        	resultList = new ArrayList<>();
+            resultList = new ArrayList<>();
         	
             for(Pair target : list) {
                 if(!(target.from > intervals[i][1] || target.to < intervals[i][0])) {
