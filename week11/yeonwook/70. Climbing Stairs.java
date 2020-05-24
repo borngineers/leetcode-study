@@ -11,7 +11,7 @@ class Solution {
         if(n < 0) return -1;
         if(n==1 || n==2) return n;
         
-    	  int result = 0;
+    	int result = 0;
         int climb1 = 1;
         int climb2 = 2;
         
