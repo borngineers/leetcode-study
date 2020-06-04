@@ -1,10 +1,12 @@
-package published.p56;
+# [Leetcode] 56. Merge Intervals
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+간격의 범위들이 주어지고 겹치는 간격을 최대한 합쳐 배열에 담아 반환한다.
 
+## Solution
+
+주어진 간격들을 첫 번째 숫자를 기준으로 오름차순으로 정렬한다. 배열을 순차적으로 탐색하면서 임의의 간격과 겹치거나 연결할 수 있는 간격은 최대한 합친 뒤 리스트에 담는다.
+
+```java
 class Solution {
     private final List<List<Integer>> list = new ArrayList<>();
 
@@ -32,3 +34,8 @@ class Solution {
         return answer;
     }
 }
+```
+
+| Time Complexity | Runtime | Memory |
+|-----------------|---------|--------|
+| O(NlogN) | 8 ms | 41.9 MB |
