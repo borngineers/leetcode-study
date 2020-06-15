@@ -1,7 +1,6 @@
-# Week 6 (2020.04.22)
+# Week 6 Problems
 
-- [1. Two Sum](https://leetcode.com/problems/two-sum/)
-- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/);
-- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
-- [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- [The K Weakest Rows in a Matrix](https://leetcode.com/contest/weekly-contest-174/problems/the-k-weakest-rows-in-a-matrix/)
+- [Reduce Array Size to The Half](https://leetcode.com/contest/weekly-contest-174/problems/reduce-array-size-to-the-half/)
+- [Maximum Product of Splitted Binary Tree](https://leetcode.com/contest/weekly-contest-174/problems/maximum-product-of-splitted-binary-tree/)
+- [Jump Game V](https://leetcode.com/contest/weekly-contest-174/problems/jump-game-v/)

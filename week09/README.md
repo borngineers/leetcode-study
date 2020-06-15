@@ -1,7 +1,7 @@
-# Week 9 (2020.05.20)
+# Week 9 Problems
 
-- [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
-- [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
-- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
-- [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-- [15. 3Sum](https://leetcode.com/problems/3sum/)
+- [Weekly Contest 183](https://leetcode.com/contest/weekly-contest-183)
+    - [1403. Minimum Subsequence in Non-Increasing Order](https://leetcode.com/contest/weekly-contest-183/problems/minimum-subsequence-in-non-increasing-order/)
+    - [1404. Number of Steps to Reduce a Number in Binary Representation to One](https://leetcode.com/contest/weekly-contest-183/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/)
+    - [1405. Longest Happy String](https://leetcode.com/contest/weekly-contest-183/problems/longest-happy-string/)
+    - [1406. Stone Game III](https://leetcode.com/contest/weekly-contest-183/problems/stone-game-iii/)

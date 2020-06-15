@@ -1,7 +1,6 @@
 # Week 5 Problems
 
-- [Weekly Contest 183](https://leetcode.com/contest/weekly-contest-183)
-    - [1403. Minimum Subsequence in Non-Increasing Order](https://leetcode.com/contest/weekly-contest-183/problems/minimum-subsequence-in-non-increasing-order/)
-    - [1404. Number of Steps to Reduce a Number in Binary Representation to One](https://leetcode.com/contest/weekly-contest-183/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/)
-    - [1405. Longest Happy String](https://leetcode.com/contest/weekly-contest-183/problems/longest-happy-string/)
-    - [1406. Stone Game III](https://leetcode.com/contest/weekly-contest-183/problems/stone-game-iii/)
+- [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
+- [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+- [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
+- [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)

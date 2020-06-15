@@ -1,8 +1,7 @@
-# Week 10 (2020.05.27)
+# Week 10 Problems (2020.04.22)
 
-- [202. Happy Number](https://leetcode.com/problems/happy-number/)
-- [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
-- [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
-- [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
-- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
-- [1424. Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii/)
+- [1. Two Sum](https://leetcode.com/problems/two-sum/)
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/);
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
+- [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)

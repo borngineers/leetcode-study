@@ -1,6 +1,4 @@
-# Leetcode Study
-
-## Week 14 Problems (2020.06.03)
+# Week 14 Problems (2020.06.03)
 
 - [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)

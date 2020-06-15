@@ -1,10 +1,7 @@
-# Week 8 (2020.05.06)
+# Week 8 Problems
 
-- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-- [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
-- [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
-- [146. LRU Cache](https://leetcode.com/problems/lru-cache/)
-- [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
-- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
-- [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
-- [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)
+- [Weekly Contest 182](https://leetcode.com/contest/weekly-contest-182)
+  - [1394. Find Lucky Integer in an Array](https://leetcode.com/contest/weekly-contest-182/problems/find-lucky-integer-in-an-array/)
+  - [1395. Count Number of Teams](https://leetcode.com/contest/weekly-contest-182/problems/count-number-of-teams/)
+  - [1396. Design Underground System](https://leetcode.com/contest/weekly-contest-182/problems/design-underground-system/)
+  - [1397. Find All Good Strings](https://leetcode.com/contest/weekly-contest-182/problems/find-all-good-strings/)
