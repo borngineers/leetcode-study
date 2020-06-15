@@ -1,45 +1,54 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
         
-        List<Pair> list = new ArrayList<>();
-        List<Pair> resultList = null;
+        int colLen = intervals.length;
+        if(colLen == 0) {
+            return new int[0][0];
+        }
+        if(colLen == 1) {
+            int[][] arr1 = {{intervals[0][0], intervals[0][1]}}; 
+            return arr1;
+        }    
         
-        for(int i=0; i<intervals.length; i++) {
-            resultList = new ArrayList<>();
-        	
-            for(Pair target : list) {
-                if(!(target.from > intervals[i][1] || target.to < intervals[i][0])) {
-                	intervals[i][0] = (target.from < intervals[i][0]) ? target.from : intervals[i][0];
-                	intervals[i][1] = (target.to < intervals[i][1]) ? intervals[i][1] : target.to;
-                } else {
-                	resultList.add(target);
-                }
+        Arrays.sort(intervals, Comparator.comparingInt(o1->o1[0]));
+        
+        List<List<Integer>> list = new ArrayList<>();
+        
+        int from = intervals[0][0];
+        int to = intervals[0][1];
+        
+        boolean flag = false;
+        
+        for(int i=1; i<colLen;  i++) {
+            
+            if(to < intervals[i][0]) {
+                List<Integer> target = Arrays.asList(from, to);
+                list.add(target);
+                
+                from = intervals[i][0];
+                to = intervals[i][1];
+                flag = true;
+            } else {
+                
+                to = (to < intervals[i][1]) ? intervals[i][1] : to;
+                if(i == colLen -1) flag = true;
             }
             
-            resultList.add(new Pair(intervals[i][0], intervals[i][1]));
-            list.clear();
-            list = resultList;
         }
         
-        int len = list.size();
-        int[][] answer = new int[len][];
-
-        for(int i=0; i<len; i++) {
-            answer[i] = new int[2];
-            answer[i][0] = list.get(i).from;
-            answer[i][1] = list.get(i).to;
+        if(flag) {
+            List<Integer> additional = Arrays.asList(from, to);
+            list.add(additional);
+        }
+        
+        int[][] answer = new int[list.size()][2];
+        int index = 0;
+        
+        for(List<Integer> pair : list) {
+            answer[index][0] = pair.get(0);
+            answer[index++][1] = pair.get(1);
         }
         
         return answer;
-    }
-}
-
-class Pair {
-    int from;
-    int to;
-    
-    public Pair(int from, int to) {
-        this.from = from;
-        this.to = to;
     }
 }
