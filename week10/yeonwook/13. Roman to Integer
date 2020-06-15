@@ -1,0 +1,39 @@
+class Solution {
+    public int romanToInt(String s) {
+    	
+    	if(s.isEmpty()) {
+    		return 0;
+    	}
+    	
+    	HashMap<Character, Integer> dataMap = new HashMap<>();
+    	dataMap.put('I',1);
+    	dataMap.put('V',5);
+    	dataMap.put('X',10);
+    	dataMap.put('L',50);
+    	dataMap.put('C',100);
+    	dataMap.put('D',500);
+    	dataMap.put('M',1000);
+    	
+      char[] arr = s.toCharArray();
+        
+      int pre = 0;
+      int answer = 0;
+    	for(int i=0; i<arr.length; i++) {
+            
+            int target = dataMap.get(arr[i]);
+            
+            if(pre >= target) {
+                answer += pre;
+            } else {
+                answer += (pre*-1);
+            }
+            
+            pre = target;
+            if(i==arr.length-1) {
+                answer += target;
+            }
+        }
+        
+        return answer;
+    }
+}
