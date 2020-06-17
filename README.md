@@ -7,3 +7,9 @@
 - [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 - [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+## Week 15 Problems
+
+- [204. Count Primes](https://leetcode.com/problems/count-primes/)
+- [38. Count and Say](https://leetcode.com/problems/count-and-say/)
+- [289. Game of Life](https://leetcode.com/problems/game-of-life/)
