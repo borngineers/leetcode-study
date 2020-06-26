@@ -1,6 +1,4 @@
-# Leetcode Study
-
-## Week 16 Problems
+# Week 16 Problems
 
 [344. Reverse String](https://leetcode.com/problems/reverse-string/)
 [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
