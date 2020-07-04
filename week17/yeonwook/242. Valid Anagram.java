@@ -1,5 +1,43 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+
+        if(s.length() != t.length()) return false;
+        
+        char[] sArr = s.toCharArray();
+        char[] tArr = t.toCharArray();
+        
+        int[] check = new int[26];
+        
+        for(int i=0; i<sArr.length; i++) {
+            check[sArr[i] - 'a']++;
+            check[tArr[i] - 'a']--;
+        }
+        
+        for(int a : check) {
+            if(a != 0) return false;
+        }
+        
+        return true;
+    }
+}
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        if(s.length() != t.length()) return false;
+        
+        char[] sArr = s.toCharArray();
+        char[] tArr = t.toCharArray();
+        
+        Arrays.sort(sArr);
+        Arrays.sort(tArr);
+        
+        return Arrays.equals(sArr, tArr);
+    }
+}
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
         
         int sLen = s.length();
         int tLen = t.length();
