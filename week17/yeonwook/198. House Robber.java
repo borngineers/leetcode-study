@@ -6,7 +6,7 @@ class Solution {
         if(nums.length == 2) return Math.max(nums[0], nums[1]);
         
         int a = nums[0];
-        int b = nums[1];
+        int b = Math.max(nums[0], nums[1]);
         int answer = 0;
         
         for(int i=2; i<nums.length; i++) {
