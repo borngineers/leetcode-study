@@ -24,11 +24,10 @@ class Solution {
         }
         
         for(int i=0; i<params.length; i++) {
-        	
-            char[] target = map.get(params[i]);
-        	List<String> temp = new ArrayList<>();
+        	char[] target = map.get(params[i]);
+            List<String> temp = new ArrayList<>();
             
-        	for(char a : target) {
+            for(char a : target) {
                 if(i==0) temp.add(String.valueOf(a));
         	    for(String s : answer) {
         		    temp.add(s+String.valueOf(a));
