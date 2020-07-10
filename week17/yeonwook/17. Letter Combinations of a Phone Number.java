@@ -29,7 +29,6 @@ class Solution {
         	List<String> temp = new ArrayList<>();
             
         	for(char a : target) {
-        	
                 if(i==0) temp.add(String.valueOf(a));
         	    for(String s : answer) {
         		    temp.add(s+String.valueOf(a));
