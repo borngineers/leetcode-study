@@ -25,7 +25,7 @@ class Solution {
         
         for(int i=0; i<params.length; i++) {
         	
-        	char[] target = map.get(params[i]);
+            char[] target = map.get(params[i]);
         	List<String> temp = new ArrayList<>();
             
         	for(char a : target) {
