@@ -19,23 +19,23 @@ public class LeetCode283 {
     }
 
     static class Solution {
-        // Runtime: 6 ms, faster than 8.62% of Java online submissions for Move Zeroes.
-        // Memory Usage: 42.4 MB, less than 5.09% of Java online submissions for Move Zeroes.
+        // Runtime: 0 ms, faster than 100.00% of Java online submissions for Move Zeroes.
+        // Memory Usage: 40.3 MB, less than 20.09% of Java online submissions for Move Zeroes.
         public void moveZeroes(int[] nums) {
             int size = nums.length;
 
             int baseIdx = 0;
-            int checkIdx = 0;
-            int temp = 0;
+            int checkIdx = -1;
             while (baseIdx < size) {
                 if (nums[baseIdx] == 0) {
-                    checkIdx = findNoneZeroIndex(nums, baseIdx + 1);
+                    if (checkIdx == -1) { checkIdx = baseIdx; }
+                    checkIdx = findNoneZeroIndex(nums, checkIdx + 1);
                     if (checkIdx == -1) {
                         break;
                     }
-                    temp = nums[baseIdx];
+
                     nums[baseIdx] = nums[checkIdx];
-                    nums[checkIdx] = temp;
+                    nums[checkIdx] = 0;
                 }
                 baseIdx++;
             }
