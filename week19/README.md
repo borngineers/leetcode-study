@@ -1,6 +1,4 @@
-# Leetcode Study
-
-## Week 19 Problems
+# Week 19 Problems
 
 -   [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
 -   [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
