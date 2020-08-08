@@ -1,9 +1,8 @@
 # Leetcode Study
 
-## Week 19 Problems
+## Week 20 Problems
 
--   [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
--   [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
--   [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
--   [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
 -   [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+-   [394. Decode String] (https://leetcode.com/problems/decode-string/)
+-   [215. Kth Largest Element in an Array] (https://leetcode.com/problems/kth-largest-element-in-an-array/)
+-   [127. Word Ladder] (https://leetcode.com/problems/word-ladder/)
